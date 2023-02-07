@@ -23,9 +23,56 @@
             margin: 20px auto;
         }
 
-        .comment-heading {
-
+        .comment-list {
+            margin-bottom: 20px;;
         }
+
+        .comment-heading {
+            font-size: 25px;
+            margin-bottom: 10px;
+            width: 100%;
+            border-bottom: 2px solid #ccc;
+            display: flex;
+        }
+
+        .user-comment {
+            color: #ea9920;
+            margin-right: 10px;
+            margin-bottom:5px;
+        }
+
+        .write-comment {
+            font-size: 18px;
+            background-color: rgba(31, 30, 30, 0.84);
+            color: #fff;
+            padding: 5px 10px;
+            margin-left: 20px;
+        }
+
+        .enter-comment {
+            width: 100%;
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-comment {
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .sbm-cmt {
+            padding: 5px 8px;
+            border: none;
+            outline: none;
+            background-color: #2a2828;
+            color:#fff;
+            font-family: 'Montserrat', sans-serif;
+        }
+
     </style>
 </head>
 <body>
@@ -54,14 +101,35 @@
         </div>
         <!--End Content-->
         <div class="comment">
-            <p class="comment-heading">Bình luận về bài đăng</p>
-            <div class="comment-list">
-                <p class="user-comment">Phạm Trung Hậu</p> <span>12/2/2023</span>
-                <p class="content-comment">Bài viết rất hay và sinh động</p>
-            </div>
+            <div class="comment-heading">
+                <p>Bình luận về bài đăng</p>
+                <?php if(isset($_SESSION['fullname'])) {
+                    echo ('<p class="write-comment cmt-success">Viết bình luận</p>');
+                }else{
+                    echo ('<p onclick="showAlert()" class="write-comment cmt-error">Viết bình luận</p>');
+                } ?>
 
+            </div>
+            <?php $id = $_GET['post_id'] ?>
+            <form class="form-comment" action="./comment.php?id=<?php echo $id ?>" method="POST">
+                <input class="enter-comment" type="text" placeholder="Nhập bình luận của bạn" name="cmt_content">
+                <button class="sbm-cmt" name = "sbm-cmt" type="submit">Gửi bình luận</button>
+                <span class="close-cmt">Hủy</span>
+            </form>
+
+            <?php
+                $post_id = $_GET['post_id'];
+                $sqlCmt = mysqli_query($conn, "SELECT * FROM comment, users WHERE comment.user_id = users.user_id and post_id = $post_id");
+
+                while ($rowCmt = mysqli_fetch_array($sqlCmt)) { ?>
+                    <div class="comment-list">
+                        <span class="user-comment"><i class="fa-solid fa-user"></i> <?php echo $rowCmt['fullname'] ?></span> <span> <i class="fa-regular fa-clock"></i> 12/2/2023</span>
+                        <p class="content-comment"><?php echo $rowCmt['cmt_content']; ?></p>
+                    </div>
+                <?php } ?>
         </div>
     </div>
-    
+
+    <script src="./js/main.js"></script>
 </body>
 </html>
