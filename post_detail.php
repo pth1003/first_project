@@ -17,6 +17,16 @@
     <link rel="stylesheet" href="./icon/font_awesome/css/all.css">
     <link rel="stylesheet" href="./icon/fontawesome-free-6.0.0-web/css/all.css">
     <title>Home</title>
+    <style>
+        .comment {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .comment-heading {
+
+        }
+    </style>
 </head>
 <body>
     <div class="main">
@@ -43,6 +53,14 @@
             </div>
         </div>
         <!--End Content-->
+        <div class="comment">
+            <p class="comment-heading">Bình luận về bài đăng</p>
+            <div class="comment-list">
+                <p class="user-comment">Phạm Trung Hậu</p> <span>12/2/2023</span>
+                <p class="content-comment">Bài viết rất hay và sinh động</p>
+            </div>
+
+        </div>
     </div>
     
 </body>

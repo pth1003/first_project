@@ -17,7 +17,7 @@
             require_once './header.php'; 
             require_once './connect.php';
             $user_id = $_SESSION['user_id'];
-            $sqlList = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id
+            $sqlList = mysqli_query($conn,"SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id
             AND blog_posts.user_id = $user_id");
         ?>
         <!--End Header-->
