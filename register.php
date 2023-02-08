@@ -1,6 +1,6 @@
 <?php
-  require_once './connect.php';
-  if(isset($_POST['sbm-register'])) {
+require_once './connect.php';
+if (isset($_POST['sbm-register'])) {
     $fullname = $_POST['fullname'];
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -57,7 +57,7 @@
     $password = md5($password);
     $checkUsername = mysqli_query($conn,"SELECT * FROM users WHERE username = '$username'");
     $result_checkUsername = mysqli_num_rows($checkUsername);
-    if($result_checkUsername > 0){
+    if ($result_checkUsername > 0) {
         echo '<script>
                 alert("Tên Đăng Nhập Đã Tồn Tại");
                 window.location="./register.php";
@@ -71,9 +71,9 @@
 
         move_uploaded_file($avt_tmp, './img/img_post/'.$avt_tmp);
         header("location:./login.php");
-   }
-  }
- ?>
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
