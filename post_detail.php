@@ -33,10 +33,12 @@
                 <span class="post-items-user"><i class="fa-solid fa-user"></i> <?php echo $row['fullname'] ?></span><span></span>
                 <span class="post-items-time"> <i class="fa-regular fa-clock"></i> <?php echo $row['post_date'] ?></span>
                 <span class="edit-post"><a href="./edit_post.php?post_id=<?php echo $row['post_id'] ?>"> 
-                    <?php 
-                        if($_SESSION['user_id'] == $row['user_id']) { ?>
-                            Edit <i class="fa-solid fa-pen-to-square"></i>      
-                    <?php } ?>
+                    <?php
+                        if(isset($_SESSION['user_id'])) {
+                            if($_SESSION['user_id'] == $row['user_id']) { ?>
+                                Edit <i class="fa-solid fa-pen-to-square"></i>
+                        <?php }
+                        } ?>
                 </a></span>
                 <p class="post-items-description-detail"><?php echo $row['content'] ?></p>
                 <img src="./img/img_post/<?php echo $row['image_url'] ?>" alt="" class="post-items-img-detail" width="500px" height="300px">

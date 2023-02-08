@@ -38,6 +38,12 @@
             background-color: #fff;
             color:#000;
         }
+
+        .container-regime {
+            display: flex;
+            margin-top: 10px;
+            align-content: center;
+        }
     </style>
 </head>
 <body>
@@ -49,13 +55,16 @@
             if(isset($_POST['btn-upload'])) {
                 $title     = $_POST['title'];
                 $content   = $_POST['content'];
+                $is_private = $_POST['select_option'];
 
                 $image_url         = $_FILES['image_url']['name'];  
                 $image_url_tmp     = $_FILES['image_url']['tmp_name'];
+
                 date_default_timezone_set('Asia/Ho_Chi_Minh');
-                $post_date         = date('Y-m-d h:i:s'); 
+                $post_date         = date('Y-m-d h:i:s');
+
                 $user_id = $_SESSION['user_id'] ;
-                $is_private = 0;
+
                 $sql = mysqli_query($conn, "INSERT into blog_posts(user_id, title, content, image_url,is_private, post_date)
                                     VALUES($user_id, '$title', '$content', '$image_url', $is_private, '$post_date')");
                 
@@ -83,7 +92,14 @@
             </div>
             <h2 style="color:#fff">Ảnh đại diện</h2>
             <input type="file" name="image_url">
-            <button type="submit" class="btn-upload" name="btn-upload">ĐĂNG BÀI</button> 
+            <div class="container-regime">
+                <p class="regime">Chế độ</p>
+                <select name="select_option" id="" class="select_option">
+                    <option value="0">Công khai</option>
+                    <option value="1">Riêng tư</option>
+                </select>
+                <button type="submit" class="btn-upload" name="btn-upload">ĐĂNG BÀI</button>
+            </div>
         </form>
         <!--End Content-->
     </div>

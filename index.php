@@ -26,21 +26,23 @@
             <!--Post-->
             <div class="posts">
             <?php 
-                while($rowPost = mysqli_fetch_array($sql)) { ?> 
-                    <div class="post-items">
-                        <a href="./post_detail.php?post_id=<?php echo $rowPost['post_id'] ?>"><img src="./img/img_post/<?php echo $rowPost['image_url'] ?>" alt="" class="post-items-img"></a>     
-                        <div>
-                            <p class="post-items-title"><a href="./post_detail.php?post_id=<?php echo $rowPost['post_id'] ?>"><?php echo $rowPost['title'] ?></a></p>
-                            <span class="post-items-user"><?php echo $rowPost['fullname'] ?></span><span> -</span>
-                            <span class="post-items-time"><?php echo $rowPost['post_date'] ?></span>
-                            <p class="post-items-description">
-                                <?php $content =  $rowPost['content']; 
-                                echo substr($content,0,400);?>
-                                <a href="./post_detail.php?post_id=<?php echo $rowPost['post_id'] ?>" href="post_detail.php?post_id=<?php echo $rowPost['post_id'] ?>"> ...xem thêm</a>
-                            </p>
+                while($rowPost = mysqli_fetch_array($sql)) {
+                    if($rowPost['is_private'] == 0) { ?>
+                        <div class="post-items">
+                            <a href="./post_detail.php?post_id=<?php echo $rowPost['post_id'] ?>"><img src="./img/img_post/<?php echo $rowPost['image_url'] ?>" alt="" class="post-items-img"></a>
+                            <div>
+                                <p class="post-items-title"><a href="./post_detail.php?post_id=<?php echo $rowPost['post_id'] ?>"><?php echo $rowPost['title'] ?></a></p>
+                                <span class="post-items-user"><?php echo $rowPost['fullname'] ?></span><span> -</span>
+                                <span class="post-items-time"><?php echo $rowPost['post_date'] ?></span>
+                                <p class="post-items-description">
+                                    <?php $content =  $rowPost['content'];
+                                    echo substr($content,0,400);?>
+                                    <a href="./post_detail.php?post_id=<?php echo $rowPost['post_id'] ?>" href="post_detail.php?post_id=<?php echo $rowPost['post_id'] ?>"> ...xem thêm</a>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-            <?php } ?>
+                    <?php }
+                }?>
             </div>
             <!--End Post-->
 
@@ -51,7 +53,7 @@
                     while ($rowUser = mysqli_fetch_array($sqlUser)) { ?>
                         <div class="user-items">
                             <img src="./img/img_post/<?php echo $rowUser['user_avt'];?>" alt="" class="user-item-avt">
-                            <p class="user-item-name"><a class="user-item-name-link" href=""><?php echo $rowUser['fullname'];?></a></p>
+                            <p class="user-item-name"><a class="user-item-name-link" href="./post_list.php?user_id=<?php echo $rowUser['user_id']?>"><?php echo $rowUser['fullname'];?></a></p>
                         </div>
                    <?php } ?>
             </div>
