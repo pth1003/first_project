@@ -26,7 +26,6 @@
             AND blog_posts.user_id = $user_id");
 
     #pagination
-
     if(isset($_GET['page'])){
         $page = $_GET['page'];
     }else{

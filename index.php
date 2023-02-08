@@ -5,9 +5,10 @@
     }else{
         $page = 1;
     }
-    $sql = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id
-                        LIMIT 2 offset $page");
-    $totalPost = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id");
+    $sql = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id 
+                            AND blog_posts.is_private = 0   
+                            LIMIT 2 offset $page");
+    $totalPost = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id AND blog_posts.is_private = 0");
     $countTotalPost = mysqli_num_rows($totalPost);
     $totalPage = ceil($countTotalPost/2)
 ?>
