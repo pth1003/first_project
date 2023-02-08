@@ -69,7 +69,7 @@
         $queryUser  = mysqli_query($conn,"INSERT INTO users(fullname, password, username, email, user_avt) 
                                         VALUE( '$fullname', '$password', '$username', '$email', '$avt')");
 
-        move_uploaded_file($avt_tmp, './img/img_avt/'.$avt_tmp);
+        move_uploaded_file($avt_tmp, './img/img_post/'.$avt_tmp);
         header("location:./login.php");
    }
   }
