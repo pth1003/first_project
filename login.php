@@ -4,8 +4,6 @@
     if(isset($_POST['sbm-login'])) {
         $username = addslashes($_POST['username']);
         $password = addslashes($_POST['password']);
-        // echo $username; 
-        // echo $password; exit;
         if(!$username) {
             echo '<script>
                     alert("Vui Lòng Nhập UserName");
@@ -19,14 +17,13 @@
         }
 
         if (!$username || !$password) {
-            echo '<script language="javascript">alert("Vui lòng nhập đầy đủ tên Đăng Nhập Và Password !!"); 
+            echo '<script type="text/javascript">alert("Vui lòng nhập đầy đủ tên Đăng Nhập Và Password !!"); 
             window.location="login.php";</script>';
             exit;
         }
         
-        #ma hoa pass word
-        $password = md5($password); 
-
+        #Ma hoa pass word
+        $password = md5($password);
         $sqlCheckUser = mysqli_query($conn,"SELECT user_id, username, password, fullname FROM users WHERE username = '$username'")
                 or die( mysqli_error($conn));
         $rowUserName  = mysqli_num_rows($sqlCheckUser);
