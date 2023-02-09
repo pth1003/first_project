@@ -26,6 +26,7 @@
     $sqlList = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id
                             AND blog_posts.user_id = $user_id");
 
+
     #pagination
     if(isset($_GET['page'])){
         $page = $_GET['page'];
