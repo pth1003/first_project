@@ -63,6 +63,8 @@
     <link rel="stylesheet" href="./icon/font_awesome/css/all.css">
     <link rel="stylesheet" href="./icon/fontawesome-free-6.0.0-web/css/all.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+
 </head>
 <body>
     <div class="container">

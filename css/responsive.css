@@ -1,0 +1,185 @@
+/*Responsive PC*/
+@media (min-width: 1024px) {
+
+}
+
+/*Responsive Tablet*/
+@media (min-width: 740px) and (max-width: 1023px) {
+
+    .header {
+        padding: 0 50px;
+    }
+
+    .post-items {
+        display: block;
+    }
+
+    .user-items {
+        margin: 0;
+        padding: 10px 20px;
+        width: 100%;
+    }
+
+    .user-item-name {
+        width: 100%;
+    }
+
+    .users-responsive {
+        flex-direction: column;
+        max-height: 850px;
+        overflow-y: auto;
+    }
+
+    .user-item-name-link {
+        display: block;
+        text-align: center;
+    }
+
+    .form-login {
+        width: 50% !important;
+    }
+
+
+}
+
+/*Responsive Mobile*/
+@media (max-width: 739px) {
+
+    .content {
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+    .users-responsive {
+        display: none;
+    }
+
+    .posts {
+        width: 100%;
+    }
+
+    .post-items {
+        width: 100%;
+        display: block;
+    }
+
+    .header {
+        padding: 0;
+        position: relative;
+    }
+
+    .header_menu_responsive {
+        position: absolute;
+        bottom: -20px;
+        right: 0;
+        padding: 0;
+        margin-right: 5px;
+    }
+
+    .header_link {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+
+    .post-items-img {
+        width: 100%;
+    }
+
+    .post-items-title-detail {
+        text-align: justify;
+    }
+
+    .post-items-img-detail {
+        width: 100%;
+    }
+
+    .form-login {
+        width: 90%;
+    }
+
+    .header_items span {
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    .header_items a {
+        font-size: 10px;
+        margin-left: 0;
+    }
+
+    .black {
+        color: #000;
+    }
+
+    .name {
+        font-size: 24px;
+    }
+
+    .title_post h2, .content_post h2 {
+        font-size: 15px;
+    }
+
+    .title_post .input-title {
+        width: 100%;
+    }
+
+    .content_post textarea {
+        width: 100%;
+    }
+
+    .content_post h2 {
+        width: 24px;
+    }
+
+    .select_option {
+        height: 30px;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .container-regime {
+        flex-direction: column;
+    }
+
+    .container-regime select {
+        width: 100%;
+    }
+
+    .regime {
+        font-size: 16px;
+    }
+
+    .menu {
+        position: fixed;
+        top: 10px;
+        right: 0;
+        font-size: 50px;
+        display: block;
+    }
+
+    .icon-menu {
+        font-size: 15px;
+    }
+
+    .users-responsive, .user-items {
+        width: 100%;
+    }
+
+   .mh650 {
+       min-height: 650px;
+   }
+
+    .users-responsive {
+        animation: animation 0.5s ease-in-out;
+    }
+
+    @keyframes animation  {
+        from{
+            opacity: 0;
+        }
+
+        to{
+            opacity: 1;
+        }
+    }
+
+}

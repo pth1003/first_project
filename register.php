@@ -85,6 +85,7 @@ if (isset($_POST['sbm-register'])) {
     <link rel="stylesheet" href="./icon/font_awesome/css/all.css">
     <link rel="stylesheet" href="./icon/fontawesome-free-6.0.0-web/css/all.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
     <style>
         .avt::before {
             content: 'CHOOSE AVATAR';

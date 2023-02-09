@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
     <title>Home</title>
 </head>
 <body>
@@ -23,7 +24,7 @@
         $user_id = $_SESSION['user_id'];
     }
     $sqlList = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id
-            AND blog_posts.user_id = $user_id");
+                            AND blog_posts.user_id = $user_id");
 
     #pagination
     if(isset($_GET['page'])){
@@ -31,8 +32,10 @@
     }else{
         $page = 1;
     }
+    $currentPage = ($page - 1) * 2;
     $sql = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id
-                            LIMIT 2 offset $page");
+                            AND blog_posts.user_id = $user_id
+                            LIMIT 2 offset $currentPage");
 //    $totalPost = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id");
     $countTotalPost = mysqli_num_rows($sqlList);
     $totalPage = ceil($countTotalPost/2);
@@ -53,7 +56,7 @@
             if (mysqli_num_rows($sqlList) == 0) {
                 echo('<h1 style="text-align: center; margin-top: 20px">Chưa có bài đăng nào</h1>');
             }
-            while ($rowList = mysqli_fetch_array($sqlList)) {
+            while ($rowList = mysqli_fetch_array($sql)) {
                 if ($_SESSION['user_id'] == $rowList['user_id']) { ?>
                     <div class="post-items">
                         <a href="./post_detail.php?post_id=<?php echo $rowList['post_id'] ?>"><img
@@ -122,7 +125,7 @@
         <ul class="pagination-list">
             <?php
             for ($i = 1; $i <= $totalPage; $i++) { ?>
-                <li class="pagination-items"><a href="./index.php?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                <li class="pagination-items"><a href="./post_list.php?page=<?php echo $i ?>"><?php echo $i ?></a></li>
             <?php }
             ?>
         </ul>
