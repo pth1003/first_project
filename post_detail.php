@@ -103,7 +103,7 @@ if (isset($_GET['post_id'])) {
             <img src="./img/img_post/<?php echo $row['image_url'] ?>" alt="" class="post-items-img-detail" width="500px"
                  height="300px">
         </div>
-
+    </div>
         <!--End Content-->
         <div class="comment">
             <div class="comment-heading">
