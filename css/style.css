@@ -24,6 +24,10 @@ body {
     list-style: none;
 }
 
+.menu {
+    display: none;
+}
+
 .header_link {
     color: #fff;
     text-decoration: none;
@@ -40,7 +44,7 @@ body {
     font-size: 40px;
     font-weight: bold;
     text-align: center;
-    margin: 40px;
+    margin: 30px;
     margin-bottom: 0px;
 }
 
@@ -62,11 +66,12 @@ body {
 }
 
 .post-items {
-    margin:30px 0px;
+    margin:20px 0 0 0;
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 3px;
     display: flex;
+    min-height: 230px;
 }
 
 .post-items-title {
@@ -98,8 +103,9 @@ body {
     border: 1px solid #ccc;
     margin-left: 20px;
     border-radius: 3px;
-    margin-top: 30px;
+    margin-top: 20px;
     max-height: 475px;
+    overflow-y: auto;
     /* background-color: red; */
 }
 
@@ -235,3 +241,42 @@ body {
     text-decoration: none;
 }
 /*Login*/
+
+
+/*pagination*/
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.pagination-list {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.pagination-items a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+
+.container-items {
+    position: relative;
+}
+
+.container-items span {
+    color: red;
+    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+
+}
