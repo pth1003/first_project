@@ -94,18 +94,42 @@ if (isset($_POST['sbm-register'])) {
     </style>
 </head>
 <body>
-    <div class="container">
-        <p class="heading">REGISTER</p>
-        <form class="form-login" action="register.php"  method="POST" enctype="multipart/form-data">
-            <div class="container-items"><i class="fa-regular fa-user"></i><input class="fullname" type="text" placeholder="FULL NAME" name="fullname"></div>
-            <div class="container-items"><i class="fa-solid fa-user"></i><input class="username" type="text" placeholder="USERNAME" name="username"></div>
-            <div class="container-items"><i class="fa-solid fa-key"></i><input class="password" type="password" placeholder="PASSWORD" name="password"></div>
-            <div class="container-items"><i class="fa-solid fa-key"></i><input class="password" type="password" placeholder="RETYPE PASSWORD" name="retypepassword"></div>
-            <div class="container-items"><i class="fa-solid fa-envelope"></i><input class="email" type="email" placeholder="EMAIL" name="email"></div>
-            <div class="container-items"><i class="fa-solid fa-envelope"></i><input class="avt" type="file" name="avatar"></div>
-            <button type="submit" class="btn-register" name="sbm-register">REGISTER</button>
-        </form>
-    </div>
+<div class="container">
+    <p class="heading">REGISTER</p>
+    <form class="form-login" action="./register.php"  method="POST"  enctype="multipart/form-data">
+        <div class="container-items container-items-fullname">
+            <i class="fa-regular fa-user"></i>
+            <input class="fullname" type="text" placeholder="FULL NAME" name="fullname">
+            <span></span>
+        </div>
+        <div class="container-items container-items-username">
+            <i class="fa-solid fa-user"></i>
+            <input class="username" type="text" placeholder="USERNAME" name="username">
+            <span></span>
+        </div>
+        <div class="container-items container-items-password">
+            <i class="fa-solid fa-key"></i>
+            <input class="password" type="password" placeholder="PASSWORD" name="password">
+            <span></span>
+        </div>
+        <div class="container-items container-items-repassword">
+            <i class="fa-solid fa-key"></i>
+            <input class="repassword" type="password" placeholder="RETYPE PASSWORD" name="retypepassword">
+            <span></span>
+        </div>
+        <div class="container-items container-items-email">
+            <i class="fa-solid fa-envelope"></i>
+            <input class="email" type="email" placeholder="EMAIL" name="email">
+            <span></span>
+        </div>
+        <div class="container-items container-items-avt">
+            <i class="fa-solid fa-envelope"></i>
+            <input class="avt" type="file" name="avatar">
+            <span></span>
+        </div>
+        <button type="submit" class="btn-register" name="sbm-register">REGISTER</button>
+    </form>
+</div>
 </body>
-<script src="./js/register.js"></script>
+<script src="./js/validation.js"></script>
 </html>

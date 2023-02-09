@@ -262,3 +262,14 @@ body {
     text-decoration: none;
     margin: 0 5px;
 }
+
+.container-items {
+    position: relative;
+}
+
+.container-items span {
+    color: red;
+    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+}
