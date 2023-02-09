@@ -24,6 +24,10 @@ body {
     list-style: none;
 }
 
+.menu {
+    display: none;
+}
+
 .header_link {
     color: #fff;
     text-decoration: none;
@@ -67,6 +71,7 @@ body {
     padding: 20px;
     border-radius: 3px;
     display: flex;
+    min-height: 230px;
 }
 
 .post-items-title {
@@ -263,6 +268,7 @@ body {
     margin: 0 5px;
 }
 
+
 .container-items {
     position: relative;
 }
@@ -272,4 +278,5 @@ body {
     font-size: 15px;
     position: absolute;
     bottom: 0;
+
 }
