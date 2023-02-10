@@ -244,17 +244,45 @@ body {
 
 
 /*pagination*/
-.pagination {
+
+.pagination  {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-center {
     display: flex;
     justify-content: center;
+}
+
+.pagination-post {
+    display: flex;
+    justify-content: flex-start;
     margin-bottom: 20px;
+    margin-left: 30px;
 }
 .pagination-list {
     width: 100px;
     display: flex;
     justify-content: space-around;
     list-style: none;
+    margin-left: 30px;
 }
+
+.pagination-user {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    margin-right: 30px;
+}
+
+.pagination-user-list {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
 
 .pagination-items a {
     display: flex;
@@ -269,6 +297,7 @@ body {
 }
 
 
+
 .container-items {
     position: relative;
 }
@@ -278,8 +307,9 @@ body {
     font-size: 15px;
     position: absolute;
     bottom: 0;
-
 }
+
+
 .fff {
     color: #fff;
 }
@@ -368,4 +398,11 @@ textarea {
     background-color: #2a2828;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
+}
+
+.highlight-user {
+    margin-top: 10px;
+    font-size: 16px;
+    margin-bottom: -40px;
+    font-weight: bold;
 }

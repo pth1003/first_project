@@ -121,7 +121,7 @@
         <!--User-->
     </div>
     <!--End User-->
-    <div class="pagination">
+    <div class="flex-center">
         <ul class="pagination-list">
             <?php
             for ($i = 1; $i <= $totalPage; $i++) { ?>
