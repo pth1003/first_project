@@ -7,7 +7,6 @@ if (isset($_POST['sbm-login'])) {
     if (!$username) {
         echo '<script>
                     alert("Vui Lòng Nhập UserName");
-                   
                 </script>';
     }else if (!$password) {
         echo '<script>
