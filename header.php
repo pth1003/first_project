@@ -6,7 +6,6 @@
             <li class="header_items"><a href="./upload_post.php" class="header_link">ĐĂNG BÀI</a></li>
             <li class="header_items"><a href="./post_list.php" class="header_link">MY BLOG</a></li>
             <li class="header_items"><a class="header_link menu"><i class="fa-solid fa-bars icon-menu"></i></a></li>
-
         <?php } ?>
     </ul>
     <?php
@@ -20,6 +19,5 @@
             <li class="header_items"><a href="./login.php" class="header_link">ĐĂNG NHẬP</a></li>
             <li class="header_items"><a href="./register.php" class="header_link">ĐĂNG KÍ</a></li>
         </ul>
-    <?php }
-    ?>
+    <?php } ?>
 </div>

@@ -6,38 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <title>Edit Post</title>
-    <style>
-        textarea {
-            height: 300px;
-            padding: 20px;
-            width: 80%;
-        }
-
-        .upload_post {
-            width: 70%;
-            margin: 10px auto;
-            background-color: #333;
-            padding: 30px;
-        }
-
-        .mb-20 {
-            margin-bottom: 20px;
-        }
-
-        .input-title {
-            padding: 5px;
-            width: 80%;
-            margin-bottom: 30px;
-        }
-
-        .btn-upload {
-            border: none;
-            outline: none;
-            padding: 8px 14px;
-            background-color: #fff;
-            color: #000;
-        }
-    </style>
 </head>
 <body>
 <div class="main">
@@ -60,11 +28,11 @@
         $sql = mysqli_query($conn, "UPDATE blog_posts SET title = '$title',
                 content = '$content',image_url = '$image_url' ,is_private = $is_private, post_date = '$post_date'
                 WHERE blog_posts.post_id = 21");
-        move_uploaded_file($image_url_tmp, './img/img_post/' . $image_url);
+        move_uploaded_file($image_url_tmp, './img/img_post/'. $image_url);
 
         if ($sql) {
             header('Location:post_list.php');
-        } else {
+        }else{
             echo "Fail";
         }
     }
@@ -86,8 +54,7 @@
             </div>
             <div class="content_post">
                 <h2 style="color:#fff">Nội dung:</h2>
-                <textarea class="mb-20" rows="50" placeholder="Nội dung"
-                          name="content"><?php echo $rowEdit['content'] ?></textarea>
+                <textarea class="mb-20" rows="50" placeholder="Nội dung" name="content"><?php echo $rowEdit['content'] ?></textarea>
             </div>
             <div class="edit">
                 <h2 style="color:#fff">Ảnh đại diện</h2>

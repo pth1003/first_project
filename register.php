@@ -55,7 +55,6 @@ if (isset($_POST['sbm-register'])) {
         die();
     }
 
-
     $password = md5($password);
     $checkUsername = mysqli_query($conn,"SELECT * FROM users WHERE username = '$username'");
     $result_checkUsername = mysqli_num_rows($checkUsername);
