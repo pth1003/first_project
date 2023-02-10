@@ -12,7 +12,6 @@ const errorRepasswod = document.querySelector('.container-items-repassword')
 const errorEmail = document.querySelector('.container-items-email')
 const errorAvt = document.querySelector('.container-items-avt')
 
-
 // form.addEventListener('submit', (e) => {
 //     e.preventDefault()
 // })
@@ -112,20 +111,27 @@ function Validation() {
         if(avt.files.length == 0){
             errorAvt.style.border = '2px solid red'
             errorAvt.querySelector('span').innerText = 'Vui lòng nhập ảnh đại diện'
+            // console.log(avt.files[0].size)
         }
     }
 
+    const limitSizeUpload = 2097152
     avt.oninput = function () {
+        if(avt.files[0].size > limitSizeUpload) {
+            errorAvt.style.border = '2px solid red'
+            errorAvt.querySelector('span').style.fontSize = '12px'
+            errorAvt.querySelector('span').innerText = 'File upload phải có dung lượng nhỏ hơn 2 MB'
+        }else
         if(avt.files.length != 0){
             errorAvt.style.border = '1px solid black'
             errorAvt.querySelector('span').innerText = ''
-
+            console.log(avt.files[0].size)
         }
     }
 
 }
-
 Validation()
+
 
 
 
