@@ -20,6 +20,14 @@
                 $content   = $_POST['content'];
                 $is_private = $_POST['select_option'];
 
+                $limitData = 2097152;
+                if($_FILES['image_url']['size'] > $limitData){
+                    echo '<script>
+                            alert("kích thước file phải < 2MB");
+                            window.location="./upload_post.php";
+                           </script>';
+                    die();
+                }
                 $image_url         = $_FILES['image_url']['name'];  
                 $image_url_tmp     = $_FILES['image_url']['tmp_name'];
 

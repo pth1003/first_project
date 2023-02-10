@@ -19,7 +19,7 @@
     if (isset($_GET['user_id'])) {
         $user_id = $_GET['user_id'];
     } else {
-        $user_id = $_SESSION['user_id'];
+        $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 6;
     }
     $sqlList = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id
                             AND blog_posts.user_id = $user_id");
@@ -58,7 +58,7 @@
                 echo('<h1 style="text-align: center; margin-top: 20px">Chưa có bài đăng nào</h1>');
             }
             while ($rowList = mysqli_fetch_array($sql)) {
-                if ($_SESSION['user_id'] == $rowList['user_id']) { ?>
+                if (isset($_SESSION['user_id']) == $rowList['user_id']) { ?>
                     <div class="post-items">
                         <a href="./post_detail.php?post_id=<?php echo $rowList['post_id'] ?>">
                             <img src="./img/img_post/<?php echo $rowList['image_url'] ?>" alt="" class="post-items-img">
