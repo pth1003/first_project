@@ -172,6 +172,20 @@
         animation: animation 0.5s ease-in-out;
     }
 
+    .comment-heading p {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .write-comment.cmt-success {
+        padding: 2px 7px ;
+        font-size: 13px ;
+    }
+
+    .user-comment, .content-comment {
+        font-size: 13px;
+    }
+
     @keyframes animation  {
         from{
             opacity: 0;
