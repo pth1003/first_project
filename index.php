@@ -16,24 +16,7 @@
     $totalPage = ceil($countTotalPost/2);
 
     #pagination for user list
-    if(isset($_GET['page_user'])){
-        $pageUser = $_GET['page_user'];
-    }else {
-        $pageUser = 1;
-    }
-        $currentPageUser = ($pageUser - 1) * 2;
-
-        $sqlUserLimit = mysqli_query($conn, "SELECT blog_posts.user_id, COUNT(blog_posts.user_id), users.fullname, users.user_avt
-                                                FROM blog_posts, users 
-                                                WHERE users.user_id = blog_posts.user_id 
-                                                GROUP BY blog_posts.user_id 
-                                                ORDER By blog_posts.user_id ASC
-                                                LIMIT 2 offset $currentPageUser");
-
-        $totalUser = mysqli_query($conn, "SELECT * FROM users");
-        $countTotalUser = mysqli_num_rows($totalUser);
-//        global $totalPageUser;
-        $totalPageUser = ceil($countTotalUser/2);
+    $totalUser = mysqli_query($conn, "SELECT * FROM users LIMIT 4");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,7 +88,7 @@
         <div class="users users-responsive mh650">
             <p class="highlight-user">Danh sách các người dùng nỗi bật</p>
             <?php
-            while ($rowUser = mysqli_fetch_array($sqlUserLimit)) { ?>
+            while ($rowUser = mysqli_fetch_array($totalUser)) { ?>
                 <div class="user-items">
                     <img src="./img/img_post/<?php echo $rowUser['user_avt']; ?>" alt="" class="user-item-avt">
                     <p class="user-item-name">
@@ -121,7 +104,6 @@
     <!--End Content-->
 
     <!--pagination-->
-    <div class="pagination">
         <div class="pagination-post">
             <ul class="pagination-list">
                 <?php
@@ -131,18 +113,6 @@
                 ?>
             </ul>
         </div>
-
-        <div class="pagination-user">
-            <ul class="pagination-user-list">
-                <?php
-                for ($i = 1; $i <= $totalPageUser; $i++) { ?>
-                    <li class="pagination-items"><a href="./index.php?page_user=<?php echo $i ?>"><?php echo $i ?></a></li>
-                <?php }
-                ?>
-            </ul>
-        </div>
-    </div>
-
 </div>
 </body>
 <script>

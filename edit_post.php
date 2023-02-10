@@ -13,7 +13,6 @@
     <?php require_once './header.php' ?>
     <?php
     require_once './connect.php';
-    $post_id = $_GET['post_id'];
     if (isset($_POST['btn-edit'])) {
         $title = $_POST['title'];
         $content = $_POST['content'];
@@ -25,13 +24,15 @@
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $post_date = date('Y-m-d h:i:s');
 
+        $post_id = $_POST['post_id'];
         $sql = mysqli_query($conn, "UPDATE blog_posts SET title = '$title',
                 content = '$content',image_url = '$image_url' ,is_private = $is_private, post_date = '$post_date'
-                WHERE blog_posts.post_id = 21");
+                WHERE blog_posts.post_id = $post_id");
         move_uploaded_file($image_url_tmp, './img/img_post/'. $image_url);
 
         if ($sql) {
             header('Location:post_list.php');
+//            echo $post_id;
         }else{
             echo "Fail";
         }
@@ -47,6 +48,9 @@
         $rowEdit = mysqli_fetch_array($sqlEdit);
         ?>
         <form action="./edit_post.php" class="upload_post" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="post_id"
+                   value="<?= $post_id?>">
+
             <div class="title_post">
                 <h2 style="color:#fff">Tiêu đề:</h2>
                 <input class="input-title" class="mb-20" type="text" name="title"
