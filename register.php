@@ -46,13 +46,15 @@ if (isset($_POST['sbm-register'])) {
       die();
     }
 
-//    if(empty($_POST['avatar'])){
-//          echo '<script>
-//            alert("Vui lòng chọn ảnh đại diện");
-//            window.location="./register.php";
-//            </script>';
-//          die();
-//      }
+    $limitData = 2097152;
+    if($_FILES['avatar']['size'] > $limitData){
+        echo '<script>
+                alert("kích thước file phải < 2MB");
+                window.location="./register.php";
+           </script>';
+        die();
+    }
+
 
     $password = md5($password);
     $checkUsername = mysqli_query($conn,"SELECT * FROM users WHERE username = '$username'");
