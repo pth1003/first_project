@@ -6,52 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/responsive.css">
-
     <title>Upload Post</title>
-
-    <style>
-        textarea {
-            height: 300px;
-            padding: 20px;
-            width: 80%;
-        }
-
-        .upload_post {
-            width: 70%;
-            margin: 10px auto;
-            background-color: #333;
-            padding: 30px;
-        }
-
-        .mb-20 {
-            margin-bottom: 20px;
-        }
-
-        .input-title {
-            padding: 5px;
-            width: 80%;
-            margin-bottom: 30px;
-        }
-
-        .btn-upload {
-            border: none;
-            outline: none;
-            padding:  8px 14px;
-            background-color: #fff;
-            color:#000;
-        }
-
-        .container-regime {
-            display: flex;
-            margin-top: 10px;
-            align-content: center;
-        }
-    </style>
 </head>
 <body>
     <div class="main">
         <!--Header-->
         <?php  require_once './header.php' ?>
+        <!--End Header-->
         <?php
         require_once './connect.php';
             if(isset($_POST['btn-upload'])) {
@@ -78,8 +39,7 @@
                     echo "Fail";
                 }  
             }
-    ?>
-        <!--End Header-->
+        ?>
 
         <!--Content-->
         <div class="name">VIẾT BÀI ĐĂNG</div>
