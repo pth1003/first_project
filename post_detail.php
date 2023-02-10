@@ -128,7 +128,7 @@ if (isset($_GET['post_id'])) {
 
                 while ($rowCmt = mysqli_fetch_array($sqlCmt)) { ?>
                     <div class="comment-list">
-                        <span class="user-comment"><i class="fa-solid fa-user"></i> <?php echo $rowCmt['fullname'] ?></span> <span> <i class="fa-regular fa-clock"></i> 12/2/2023</span>
+                        <span class="user-comment"><i class="fa-solid fa-user"></i> <?php echo $rowCmt['fullname'] ?></span> <span>  </span>
                         <p class="content-comment"><?php echo $rowCmt['cmt_content']; ?></p>
                     </div>
                 <?php } ?>
