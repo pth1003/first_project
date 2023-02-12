@@ -7,16 +7,19 @@
     }else{
         $page = 1;
     }
-    $currentPage = ($page - 1) * 2;
+
+    $currentPage = $page;
+    $offsetPage = ($page - 1) * 2;
     $sql = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id 
                             AND blog_posts.is_private = 0   
-                            LIMIT 2 offset $currentPage");
+                            LIMIT 2 offset $offsetPage");
     $totalPost = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id AND blog_posts.is_private = 0");
     $countTotalPost = mysqli_num_rows($totalPost);
     $totalPage = ceil($countTotalPost/2);
 
     #pagination for user list
-    $totalUser = mysqli_query($conn, "SELECT * FROM users LIMIT 4");
+    $totalUser = mysqli_query($conn, "SELECT blog_posts.user_id, user_avt, users.fullname, COUNT(blog_posts.user_id) FROM blog_posts, users WHERE users.user_id = blog_posts.user_id
+                                                               GROUP BY blog_posts.user_id LIMIT 4");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,10 +110,15 @@
         <div class="pagination-post">
             <ul class="pagination-list">
                 <?php
-                for ($i = 1; $i <= $totalPage; $i++) { ?>
-                    <li class="pagination-items"><a href="./index.php?page=<?php echo $i ?>"><?php echo $i ?></a></li>
-                <?php }
-                ?>
+                for ($i = 1; $i <= $totalPage; $i++) {
+                    if($i != $currentPage){
+                            if(($i > $currentPage - 3) && ($i < $currentPage + 3)) { ?>
+                                <li class="pagination-items"><a  href="./index.php?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                           <?php }
+                    }else{ ?>
+                        <li class="pagination-items"><a style="background-color:#fff; color: #000; border:1px solid #000" href="./index.php?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                    <?php }
+                } ?>
             </ul>
         </div>
 </div>
@@ -119,7 +127,7 @@
         var  iconMenu = document.querySelector('.menu')
         var  listUser = document.querySelector('.users-responsive')
         var  listPost = document.querySelector('.posts')
-        var  pagination = document.querySelector('.pagination')
+        var  pagination = document.querySelector('.pagination-post')
 
         var  flag  = true
         iconMenu.onclick = function () {
@@ -130,7 +138,6 @@
                 pagination.classList.add('hiden')
                 pagination.classList.remove('show-flex')
                 flag = false
-
                 //click lần 2, list post show, list user hiden
             }else if(flag == false){
                 listUser.classList.remove('show')

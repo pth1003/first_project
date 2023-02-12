@@ -47,7 +47,8 @@
 
     .content {
         padding-top: 10px;
-        padding-left: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
     .users-responsive {
         display: none;
@@ -186,6 +187,37 @@
         font-size: 13px;
     }
 
+    .highlight-user {
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .pagination-post {
+        padding-right:20px;
+        margin-left: 0;
+    }
+
+    .list-post-heading {
+        text-align: center;
+        margin-bottom: -30px;
+        margin-top: 10px;
+        font-size: 20px;
+    }
+
+    .post-items-title a {
+        font-size: 20px;
+    }
+
+    .flex-center {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        padding-right: 20px;
+    }
+
+    .post-items-img {
+        border: 1px solid #ccc;
+    }
     @keyframes animation  {
         from{
             opacity: 0;

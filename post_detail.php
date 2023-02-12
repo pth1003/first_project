@@ -72,11 +72,10 @@ if (isset($_GET['post_id'])) {
         <?php
         $post_id = $_GET['post_id'];
         $sqlCmt = mysqli_query($conn, "SELECT * FROM comment, users WHERE comment.user_id = users.user_id and post_id = $post_id");
-
         while ($rowCmt = mysqli_fetch_array($sqlCmt)) { ?>
             <div class="comment-list">
                 <span class="user-comment"><i class="fa-solid fa-user"></i> <?php echo $rowCmt['fullname'] ?></span>
-                <span>  </span>
+                <span style="color: #0cb200; font-size: 12px"> <?php echo $rowCmt['cmt_date'] ?> </span>
                 <p class="content-comment"><?php echo $rowCmt['cmt_content']; ?></p>
             </div>
         <?php } ?>

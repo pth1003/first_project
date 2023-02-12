@@ -28,9 +28,21 @@
                            </script>';
                     die();
                 }
+
+                //check type Upload
+                $typeUpload = pathinfo($_FILES['image_url']['name'], PATHINFO_EXTENSION);
+                if(($typeUpload == 'jpg') || ($typeUpload == 'jpeg') || ($typeUpload == 'png')){
+                }else{
+                    echo '<script>
+                            alert("Ảnh upload phải có định dạng JPG, JPEG, PNG");
+                            window.location="./upload_post.php";
+                           </script>';
+                    die();
+                }
                 $image_url         = $_FILES['image_url']['name'];  
                 $image_url_tmp     = $_FILES['image_url']['tmp_name'];
 
+                //set time HCM
                 date_default_timezone_set('Asia/Ho_Chi_Minh');
                 $post_date         = date('Y-m-d h:i:s');
 
