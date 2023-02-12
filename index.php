@@ -16,7 +16,8 @@
     $totalPage = ceil($countTotalPost/2);
 
     #pagination for user list
-    $totalUser = mysqli_query($conn, "SELECT * FROM users LIMIT 4");
+    $totalUser = mysqli_query($conn, "SELECT blog_posts.user_id, user_avt, users.fullname, COUNT(blog_posts.user_id) FROM blog_posts, users WHERE users.user_id = blog_posts.user_id
+                                                               GROUP BY blog_posts.user_id LIMIT 4");
 ?>
 <!DOCTYPE html>
 <html lang="en">
