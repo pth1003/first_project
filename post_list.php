@@ -30,10 +30,11 @@
     }else{
         $page = 1;
     }
-    $currentPage = ($page - 1) * 2;
+    $currentPage = $page;
+    $offsetPage = ($page - 1) * 2;
     $sql = mysqli_query($conn, "SELECT * FROM blog_posts, users WHERE blog_posts.user_id = users.user_id
                             AND blog_posts.user_id = $user_id
-                            LIMIT 2 offset $currentPage");
+                            LIMIT 2 offset $offsetPage");
     $countTotalPost = mysqli_num_rows($sqlList);
     $totalPage = ceil($countTotalPost/2);
 
@@ -124,10 +125,15 @@
     <div class="flex-center">
         <ul class="pagination-list">
             <?php
-            for ($i = 1; $i <= $totalPage; $i++) { ?>
-                <li class="pagination-items"><a href="./post_list.php?page=<?php echo $i ?>"><?php echo $i ?></a></li>
-            <?php }
-            ?>
+            for ($i = 1; $i <= $totalPage; $i++) {
+                if($i != $currentPage){
+                    if(($i > $offsetPage - 3) && ($i < $offsetPage + 3)) { ?>
+                        <li class="pagination-items"><a  href="./post_list.php?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                    <?php }
+                }else{ ?>
+                    <li class="pagination-items"><a style="background-color:#fff; color: #000; border:1px solid #000" href="./post_list.php?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                <?php }
+            } ?>
         </ul>
     </div>
 </div>
