@@ -7,7 +7,7 @@
         $user_id = $_SESSION['user_id'];
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $cmt_date = date('Y-m-d h:i:s');
-        $sqlCmt = mysqli_query($conn, "INSERT into comment(cmt_content, user_id, post_id, date_cmt) values ('$cmt_content', $user_id, $post_id, '$cmt_date')");
+        $sqlCmt = mysqli_query($conn, "INSERT into comment(cmt_content, user_id, post_id, cmt_date) values ('$cmt_content', $user_id, $post_id, '$cmt_date')");
 
         if($sqlCmt){
             echo "   <script type='text/javascript'>alert('Thành công');
